@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ___FILEBASENAME___Worker
+class ___VARIABLE_productName:identifier___Worker
 {
-    func doSetup(_ viewController : ___FILEBASENAME___ViewController) {
-        let interactor = ___FILEBASENAME___Interactor()
-        let presenter = ___FILEBASENAME___Presenter()
-        let router = ___FILEBASENAME___Router()
+    func doSetup(_ viewController : ___VARIABLE_productName:identifier___ViewController) {
+        let interactor = ___VARIABLE_productName:identifier___Interactor()
+        let presenter = ___VARIABLE_productName:identifier___Presenter()
+        let router = ___VARIABLE_productName:identifier___Router()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter

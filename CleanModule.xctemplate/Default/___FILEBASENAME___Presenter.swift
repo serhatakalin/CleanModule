@@ -8,19 +8,19 @@
 
 import UIKit
 
-protocol ___FILEBASENAME___PresentationLogic
+protocol ___VARIABLE_productName:identifier___PresentationLogic
 {
-    func presentSomething(response: ___FILEBASENAME___.Something.Response)
+    func presentSomething(response: ___VARIABLE_productName:identifier___.Something.Response)
 }
 
-class ___FILEBASENAME___Presenter: ___FILEBASENAME___PresentationLogic
+class ___VARIABLE_productName:identifier___Presenter: ___VARIABLE_productName:identifier___PresentationLogic
 {
-    weak var viewController: ___FILEBASENAME___DisplayLogic?
+    weak var viewController: ___VARIABLE_productName:identifier___DisplayLogic?
     
     // MARK: Do something
     
-    func presentSomething(response: ___FILEBASENAME___.Something.Response) {
-        let viewModel = ___FILEBASENAME___.Something.ViewModel()
+    func presentSomething(response: ___VARIABLE_productName:identifier___.Something.Response) {
+        let viewModel = ___VARIABLE_productName:identifier___.Something.ViewModel()
         viewController?.displaySomething(viewModel: viewModel)
     }
 }

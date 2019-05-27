@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum ___FILEBASENAME___
+enum ___VARIABLE_productName:identifier___
 {
     // MARK: Use cases
     

@@ -8,27 +8,27 @@
 
 import UIKit
 
-protocol ___FILEBASENAME___DisplayLogic: class
+protocol ___VARIABLE_productName:identifier___DisplayLogic: class
 {
-    func displaySomething(viewModel: ___FILEBASENAME___.Something.ViewModel)
+    func displaySomething(viewModel: ___VARIABLE_productName:identifier___.Something.ViewModel)
 }
 
-class ___FILEBASENAME___ViewController: UIViewController, ___FILEBASENAME___DisplayLogic
+class ___VARIABLE_productName:identifier___ViewController: UIViewController, ___VARIABLE_productName:identifier___DisplayLogic
 {
-    var interactor: ___FILEBASENAME___BusinessLogic?
-    var router: (NSObjectProtocol & ___FILEBASENAME___RoutingLogic & ___FILEBASENAME___DataPassing)?
+    var interactor: ___VARIABLE_productName:identifier___BusinessLogic?
+    var router: (NSObjectProtocol & ___VARIABLE_productName:identifier___RoutingLogic & ___VARIABLE_productName:identifier___DataPassing)?
     
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        ___FILEBASENAME___Worker().doSetup(self)
+        ___VARIABLE_productName:identifier___Worker().doSetup(self)
         
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        ___FILEBASENAME___Worker().doSetup(self)
+        ___VARIABLE_productName:identifier___Worker().doSetup(self)
     }
     
     // MARK: Routing
@@ -52,11 +52,11 @@ class ___FILEBASENAME___ViewController: UIViewController, ___FILEBASENAME___Disp
     // MARK: Do something
     
     func doSomething() {
-        let request = ___FILEBASENAME___.Something.Request()
+        let request = ___VARIABLE_productName:identifier___.Something.Request()
         interactor?.doSomething(request: request)
     }
     
-    func displaySomething(viewModel: ___FILEBASENAME___.Something.ViewModel) {
+    func displaySomething(viewModel: ___VARIABLE_productName:identifier___.Something.ViewModel) {
     }
 }
 

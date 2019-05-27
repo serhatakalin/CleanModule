@@ -8,20 +8,20 @@
 
 import UIKit
 
-@objc protocol ___FILEBASENAME___RoutingLogic
+@objc protocol ___VARIABLE_productName:identifier___RoutingLogic
 {
     //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol ___FILEBASENAME___DataPassing
+protocol ___VARIABLE_productName:identifier___DataPassing
 {
-    var dataStore: ___FILEBASENAME___DataStore? { get }
+    var dataStore: ___VARIABLE_productName:identifier___DataStore? { get }
 }
 
-class ___FILEBASENAME___Router: NSObject, ___FILEBASENAME___RoutingLogic, ___FILEBASENAME___DataPassing
+class ___VARIABLE_productName:identifier___Router: NSObject, ___VARIABLE_productName:identifier___RoutingLogic, ___VARIABLE_productName:identifier___DataPassing
 {
-    weak var viewController: ___FILEBASENAME___ViewController?
-    var dataStore: ___FILEBASENAME___DataStore?
+    weak var viewController: ___VARIABLE_productName:identifier___ViewController?
+    var dataStore: ___VARIABLE_productName:identifier___DataStore?
     
     // MARK: Routing
     
@@ -42,14 +42,14 @@ class ___FILEBASENAME___Router: NSObject, ___FILEBASENAME___RoutingLogic, ___FIL
     
     // MARK: Navigation
     
-    //func navigateToSomewhere(source: ExampleViewController, destination: SomewhereViewController)
+    //func navigateToSomewhere(source: ___VARIABLE_productName:identifier___ViewController, destination: SomewhereViewController)
     //{
     //  source.show(destination, sender: nil)
     //}
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: ExampleDataStore, destination: inout SomewhereDataStore)
+    //func passDataToSomewhere(source: ___VARIABLE_productName:identifier___DataStore, destination: SomewhereDataStore)
     //{
     //  destination.name = source.name
     //}

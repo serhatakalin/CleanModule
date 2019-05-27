@@ -8,29 +8,29 @@
 
 import UIKit
 
-protocol ___FILEBASENAME___BusinessLogic
+protocol ___VARIABLE_productName:identifier___BusinessLogic
 {
-    func doSomething(request: ___FILEBASENAME___.Something.Request)
+    func doSomething(request: ___VARIABLE_productName:identifier___.Something.Request)
 }
 
-protocol ___FILEBASENAME___DataStore
+protocol ___VARIABLE_productName:identifier___DataStore
 {
     //var name: String { get set }
 }
 
-class ___FILEBASENAME___Interactor: ___FILEBASENAME___BusinessLogic, ___FILEBASENAME___DataStore
+class ___VARIABLE_productName:identifier___Interactor: ___VARIABLE_productName:identifier___BusinessLogic, ___VARIABLE_productName:identifier___DataStore
 {
-    var presenter: ___FILEBASENAME___PresentationLogic?
-    var worker: ___FILEBASENAME___Worker?
+    var presenter: ___VARIABLE_productName:identifier___PresentationLogic?
+    var worker: ___VARIABLE_productName:identifier___Worker?
     //var name: String = ""
     
     // MARK: Do something
     
-    func doSomething(request: ___FILEBASENAME___.Something.Request) {
-        worker = ___FILEBASENAME___Worker()
+    func doSomething(request: ___VARIABLE_productName:identifier___.Something.Request) {
+        worker = ___VARIABLE_productName:identifier___Worker()
         worker?.doSomeWork()
         
-        let response = ___FILEBASENAME___.Something.Response()
+        let response = ___VARIABLE_productName:identifier___.Something.Response()
         presenter?.presentSomething(response: response)
     }
 }
