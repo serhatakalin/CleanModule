@@ -24,7 +24,7 @@
 	<array>
 		<dict>
 			<key>Description</key>
-			<string>Name of module that you need create</string>
+			<string>Name of the module you want to create</string>
 			<key>Default</key>
 			<string></string>
 			<key>Identifier</key>

@@ -1,15 +1,15 @@
 //
 //  ExampleWorker.swift
-//  
 //
 //  Created by Serhat Akalin on 27.05.2019.
 //
 
+/// VIP scene: dependency wiring and optional side‑effect work for the Example module.
 import UIKit
 
-class ExampleWorker
-{
-    func doSetup(_ viewController : ExampleViewController) {
+/// Worker: wires Interactor, Presenter, Router and optionally performs external work.
+class ExampleWorker {
+    func doSetup(_ viewController: ExampleViewController) {
         let interactor = ExampleInteractor()
         let presenter = ExamplePresenter()
         let router = ExampleRouter()

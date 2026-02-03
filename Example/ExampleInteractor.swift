@@ -1,24 +1,24 @@
 //
 //  ExampleInteractor.swift
-//  
 //
 //  Created by Serhat Akalin on 27.05.2019.
 //
 
+/// VIP scene: business logic and data store for the Example module.
 import UIKit
 
-protocol ExampleBusinessLogic
-{
+/// Business logic contract for the Example scene.
+protocol ExampleBusinessLogic {
     func doSomething(request: Example.Something.Request)
 }
 
-protocol ExampleDataStore
-{
+/// Data store contract for passing data to other scenes.
+protocol ExampleDataStore {
     //var name: String { get set }
 }
 
-class ExampleInteractor: ExampleBusinessLogic, ExampleDataStore
-{
+/// Interactor: handles business logic and drives the VIP cycle for the Example scene.
+class ExampleInteractor: ExampleBusinessLogic, ExampleDataStore {
     var presenter: ExamplePresentationLogic?
     var worker: ExampleWorker?
     //var name: String = ""

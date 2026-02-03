@@ -1,19 +1,19 @@
 //
 //  ExamplePresenter.swift
-//  
 //
 //  Created by Serhat Akalin on 27.05.2019.
 //
 
+/// VIP scene: formats Interactor output into view models for the Example module.
 import UIKit
 
-protocol ExamplePresentationLogic
-{
+/// Presentation logic contract for the Example scene.
+protocol ExamplePresentationLogic {
     func presentSomething(response: Example.Something.Response)
 }
 
-class ExamplePresenter: ExamplePresentationLogic
-{
+/// Presenter: formats responses into view models and notifies the ViewController.
+class ExamplePresenter: ExamplePresentationLogic {
     weak var viewController: ExampleDisplayLogic?
     
     // MARK: Do something

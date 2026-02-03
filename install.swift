@@ -11,44 +11,45 @@ import Foundation
 let templateName = "CleanModule.xctemplate"
 let destinationRelativePath = "/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Project Templates/iOS/Application"
 
-
-func moveTemplate(){
-
+func moveTemplate() {
     let fileManager = FileManager.default
     let destinationPath = bash(command: "xcode-select", arguments: ["--print-path"]).appending(destinationRelativePath)
     do {
-        if !fileManager.fileExists(atPath:"\(destinationPath)/\(templateName)"){
-        
+        if !fileManager.fileExists(atPath: "\(destinationPath)/\(templateName)") {
             try fileManager.copyItem(atPath: templateName, toPath: "\(destinationPath)/\(templateName)")
-            
-            print("Congrats! You have successfully installed.")
-            
-        }else{
-            
-            try _ = fileManager.replaceItemAt(URL(fileURLWithPath:"\(destinationPath)/\(templateName)"), withItemAt: URL(fileURLWithPath:templateName))
-            
-            print("Module already exist. It is replaced.")
+            print("CleanModule template installed successfully.")
+        } else {
+            try fileManager.replaceItemAt(URL(fileURLWithPath: "\(destinationPath)/\(templateName)"), withItemAt: URL(fileURLWithPath: templateName))
+            print("Template already exists and has been replaced.")
         }
-    }
-    catch let error as NSError {
-        print("Something went wrong : \(error.localizedFailureReason!) or Xcode App is not primary, you must switch it in terminal. (sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer)")
+    } catch let error as NSError {
+        print("Installation failed: \(error.localizedDescription)")
+        print("If the error is permission-related, ensure Xcode is the primary developer tool: sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer")
+        exit(1)
     }
 }
 
-func shell(launchPath: String, arguments: [String]) -> String
-{
-    let task = Process()
-    task.launchPath = launchPath
-    task.arguments = arguments
-    
+func shell(executablePath: String, arguments: [String]) -> String {
+    let process = Process()
+    process.executableURL = URL(fileURLWithPath: executablePath)
+    process.arguments = arguments
+
     let pipe = Pipe()
-    task.standardOutput = pipe
-    task.launch()
-    
+    process.standardOutput = pipe
+
+    do {
+        try process.run()
+    } catch {
+        print("Installation failed: could not run \(executablePath). \(error.localizedDescription)")
+        exit(1)
+    }
+
     let data = pipe.fileHandleForReading.readDataToEndOfFile()
-    let output = String(data: data, encoding: String.Encoding.utf8)!
+    guard let output = String(data: data, encoding: .utf8) else {
+        print("Installation failed: could not decode command output.")
+        exit(1)
+    }
     if output.count > 0 {
-        //remove newline character.
         let lastIndex = output.index(before: output.endIndex)
         return String(output[output.startIndex ..< lastIndex])
     }
@@ -56,8 +57,8 @@ func shell(launchPath: String, arguments: [String]) -> String
 }
 
 func bash(command: String, arguments: [String]) -> String {
-    let whichPathForCommand = shell(launchPath: "/bin/bash", arguments: [ "-l", "-c", "which \(command)" ])
-    return shell(launchPath: whichPathForCommand, arguments: arguments)
+    let whichPathForCommand = shell(executablePath: "/bin/bash", arguments: ["-l", "-c", "which \(command)"])
+    return shell(executablePath: whichPathForCommand, arguments: arguments)
 }
 
 moveTemplate()

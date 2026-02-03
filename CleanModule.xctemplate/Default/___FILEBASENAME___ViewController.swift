@@ -6,15 +6,16 @@
 //  Copyright © ___YEAR___ ___ORGANIZATIONNAME___. All rights reserved.
 //
 
+/// VIP scene: view and user input for this module.
 import UIKit
 
-protocol ___VARIABLE_productName:identifier___DisplayLogic: class
-{
+/// Display logic contract: ViewController displays view models from the Presenter.
+protocol ___VARIABLE_productName:identifier___DisplayLogic: AnyObject {
     func displaySomething(viewModel: ___VARIABLE_productName:identifier___.Something.ViewModel)
 }
 
-class ___VARIABLE_productName:identifier___ViewController: UIViewController, ___VARIABLE_productName:identifier___DisplayLogic
-{
+/// ViewController: receives user actions, calls Interactor, and displays view models from Presenter.
+class ___VARIABLE_productName:identifier___ViewController: UIViewController, ___VARIABLE_productName:identifier___DisplayLogic {
     var interactor: ___VARIABLE_productName:identifier___BusinessLogic?
     var router: (NSObjectProtocol & ___VARIABLE_productName:identifier___RoutingLogic & ___VARIABLE_productName:identifier___DataPassing)?
     

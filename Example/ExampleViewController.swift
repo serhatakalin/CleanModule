@@ -1,19 +1,19 @@
 //
 //  ExampleViewController.swift
-//  
 //
 //  Created by Serhat Akalin on 27.05.2019.
 //
 
+/// VIP scene: view and user input for the Example module.
 import UIKit
 
-protocol ExampleDisplayLogic: class
-{
+/// Display logic contract: ViewController displays view models from the Presenter.
+protocol ExampleDisplayLogic: AnyObject {
     func displaySomething(viewModel: Example.Something.ViewModel)
 }
 
-class ExampleViewController: UIViewController, ExampleDisplayLogic
-{
+/// ViewController: receives user actions, calls Interactor, and displays view models from Presenter.
+class ExampleViewController: UIViewController, ExampleDisplayLogic {
     var interactor: ExampleBusinessLogic?
     var router: (NSObjectProtocol & ExampleRoutingLogic & ExampleDataPassing)?
     

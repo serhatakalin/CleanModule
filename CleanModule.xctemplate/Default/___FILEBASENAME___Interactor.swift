@@ -6,20 +6,21 @@
 //  Copyright © ___YEAR___ ___ORGANIZATIONNAME___. All rights reserved.
 //
 
+/// VIP scene: business logic and data store for this module.
 import UIKit
 
-protocol ___VARIABLE_productName:identifier___BusinessLogic
-{
+/// Business logic contract for this scene.
+protocol ___VARIABLE_productName:identifier___BusinessLogic {
     func doSomething(request: ___VARIABLE_productName:identifier___.Something.Request)
 }
 
-protocol ___VARIABLE_productName:identifier___DataStore
-{
+/// Data store contract for passing data to other scenes.
+protocol ___VARIABLE_productName:identifier___DataStore {
     //var name: String { get set }
 }
 
-class ___VARIABLE_productName:identifier___Interactor: ___VARIABLE_productName:identifier___BusinessLogic, ___VARIABLE_productName:identifier___DataStore
-{
+/// Interactor: handles business logic and drives the VIP cycle for this scene.
+class ___VARIABLE_productName:identifier___Interactor: ___VARIABLE_productName:identifier___BusinessLogic, ___VARIABLE_productName:identifier___DataStore {
     var presenter: ___VARIABLE_productName:identifier___PresentationLogic?
     var worker: ___VARIABLE_productName:identifier___Worker?
     //var name: String = ""
